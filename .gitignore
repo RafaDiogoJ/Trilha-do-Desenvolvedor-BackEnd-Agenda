@@ -1,0 +1,19 @@
+# Ignorar arquivos e pastas temporárias do Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+# Ignorar arquivos de build
+*.dll
+*.exe
+*.pdb
+
+# Ignorar arquivos de backup e logs
+*.log
+*.cache
+*.tmp
+
+# Ignorar publicações locais
+publish/

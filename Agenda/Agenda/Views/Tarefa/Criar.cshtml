@@ -1,0 +1,40 @@
+﻿@model TarefaModel
+@{
+    ViewData["Title"] = "Criar Tarefa";
+}
+
+<div class="text-center">
+
+    <h1>Cadastro de Tarefa</h1>
+
+</div>
+
+
+<form asp-controller="Tarefa" asp-action="Criar" method="post">
+
+    <div class="form-group">
+        <label for="Tarefa">Tarefa</label>
+        <input type="text" asp-for="NomeTarefa" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="Observacao">Observações</label>
+        <input type="text" asp-for="Observacao" class="form-control" placeholder="Observações importantes a respeito da tarefa">
+    </div>
+
+    <div class="form-group">
+        <label for="Data">Data</label>
+        <input type="date" asp-for="Data" class="form-control" placeholder="Selecione a data">
+    </div>
+
+    <div class="form-group">
+        <label for="Hora">Hora</label>
+        <input type="time" asp-for="Hora" class="form-control" placeholder="Tarefa">
+    </div>
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-outline-primary">Adicionar</button>
+        <a class="btn btn-outline-secondary" asp-controller="Tarefa" asp-action="Index">Voltar</a>
+    </div>
+
+</form>
