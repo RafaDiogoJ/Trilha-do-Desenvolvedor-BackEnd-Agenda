@@ -15,21 +15,21 @@
     <div class="form-group">
         <label for="Tarefa">Tarefa</label>
         <input type="text" asp-for="NomeTarefa" class="form-control">
-        @Html.ValidationMessageFor(model => model.NomeTarefa, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(x => x.NomeTarefa)
     </div>
 
-    <div class="form-group">
+    <div class="form-group mt-3">
         <label for="Observacao">Observações</label>
         <input type="text" asp-for="Observacao" class="form-control" placeholder="Observações importantes a respeito da tarefa">
     </div>
 
-    <div class="form-group">
+    <div class="form-group mt-3">
         <label for="Data">Data</label>
         <input type="date" asp-for="Data" class="form-control" placeholder="Selecione a data">
-        @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(x => x.Data)
     </div>
 
-    <div class="form-group">
+    <div class="form-group mt-3">
         <label for="Hora">Hora</label>
         <input type="time" asp-for="Hora" class="form-control" placeholder="Tarefa">
     </div>

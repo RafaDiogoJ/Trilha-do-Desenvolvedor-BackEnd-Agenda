@@ -37,27 +37,69 @@ namespace Agenda.Controllers
 
         public IActionResult Apagar(int id)
         {
-            _tarefaRepositorio.Apagar(id);
-            return RedirectToAction("Index");
+            try
+            {
+                bool apagado = _tarefaRepositorio.Apagar(id);
+
+                if (apagado)
+                {
+                    TempData["MensagemSucesso"] = "Tarefa apagada com sucesso!";
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Ops, não conseguimos apagar sua tarefa!";
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception erro)
+            {
+
+                TempData["MensagemSucesso"] = $"Ops, não conseguimos apagar esta tarefa, detalhes do erro: {erro.Message} ";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
-        public IActionResult Criar (TarefaModel tarefa)
+        public IActionResult Criar(TarefaModel tarefa)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _tarefaRepositorio.Adicionar(tarefa);
+                if (ModelState.IsValid)
+                {
+                    _tarefaRepositorio.Adicionar(tarefa);
+                    TempData["MensagemSucesso"] = "Tarefa criada com sucesso!";
+                    return RedirectToAction("Index");
+                }
+
+                return View(tarefa);
+            }
+            catch (System.Exception erro)
+            {
+                TempData["MensagemSucesso"] = $"Ops, não conseguimos cadastrar esta tarefa, tente novamente, detalhes do erro: {erro.Message} ";
                 return RedirectToAction("Index");
             }
-
-            return View(tarefa);
         }
 
         [HttpPost]
         public IActionResult Alterar(TarefaModel tarefa)
         {
-            _tarefaRepositorio.Atualizar(tarefa);
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _tarefaRepositorio.Atualizar(tarefa);
+                    TempData["MensagemSucesso"] = "Tarefa alterada com sucesso!";
+                    return RedirectToAction("Index");
+                }
+
+                return View("Editar", tarefa);
+            }
+            catch (System.Exception erro)
+            {
+                TempData["MensagemSucesso"] = $"Ops, não conseguimos alterar esta tarefa, tente novamente, detalhes do erro: {erro.Message} ";
+                return RedirectToAction("Index");
+            }
         }
     }
 }

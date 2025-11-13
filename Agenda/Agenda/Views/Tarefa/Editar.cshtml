@@ -14,6 +14,7 @@
     <div class="form-group">
         <label for="Tarefa">Tarefa</label>
         <input type="text" asp-for="NomeTarefa" class="form-control">
+        @Html.ValidationMessageFor(x => x.NomeTarefa)
     </div>
 
     <div class="form-group">
@@ -24,6 +25,7 @@
     <div class="form-group">
         <label for="Data">Data</label>
         <input type="date" asp-for="Data" class="form-control" placeholder="Selecione a data">
+        @Html.ValidationMessageFor(x => x.Data)
     </div>
 
     <div class="form-group">
