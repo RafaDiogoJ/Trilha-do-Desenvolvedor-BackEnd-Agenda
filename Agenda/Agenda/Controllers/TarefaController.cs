@@ -101,5 +101,20 @@ namespace Agenda.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        [HttpPost]
+        public IActionResult MarcarConcluida(int id, bool concluida)
+        {
+            var tarefa = _tarefaRepositorio.ListarPorId(id);
+
+            if (tarefa != null)
+            {
+                tarefa.Concluida = concluida;
+                _tarefaRepositorio.Atualizar(tarefa);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
