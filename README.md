@@ -51,7 +51,6 @@ dotnet ef database update
 
 5. Execute o projeto
 
-
 ## Funcionalidades
 
 - Ver, Adicionar, editar e excluir tarefas
