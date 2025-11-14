@@ -30,8 +30,6 @@ Antes de rodar o projeto, é necessário ter:
 1. Clone o repositório:
 
 git clone https://github.com/RafaDiogoJ/Trilha-do-Desenvolvedor-BackEnd-Agenda.git
-cd Trilha-do-Desenvolvedor-BackEnd-Agenda
-
 
 2. Restaure os pacotes NuGet:
 
